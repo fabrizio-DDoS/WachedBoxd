@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>WachedBoxd</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" target="_blank" rel="noopener noreferrer">
+        <h1 class="titulo">🎬 WachedBoxd</h1>
+    </a>
+    
+    <a href="userList.html" target="_blank" rel="userList.html">
+        <button class="export-btn" id="export-btn">Sua Lista!</button>
+    </a>
+    
+  </header>
+
+  <main class="container">
+
+    <div class="card">
+      <img src="" alt="Filme" class="poster">
+
+      <div class="info">
+        <h2 class="title">Nome do Filme</h2>
+        <p class="year">2024</p>
+      </div>
+
+      <div class="labels">
+        <span class="like">✔ Assistido</span>
+        <span class="dislike">❌ Não vi</span>
+        <span class="later">⏳ Ver depois</span>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="btn dislike-btn" id="btn dislike-btn" onclick="deslike()">❌</button>
+      <button class="btn later-btn" id="btn later-btn" onclick="later()">⏳</button>
+      <button class="btn like-btn" id="btn like-btn" onclick="like()">✔</button>
+    </div>
+    <h3 id="mostraresult">Contador</h3>
+  </main>
+
+</body>
+<script src="script.js"></script>
+</html>

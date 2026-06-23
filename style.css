@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #121212;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.export-btn {
+  background: #1db954;
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.card {
+  width: 300px;
+  height: 500px;
+  background: #1e1e1e;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.poster {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+}
+
+.info {
+  padding: 15px;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.year {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.labels span {
+  position: absolute;
+  top: 20px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: none;
+}
+
+.like {
+  left: 20px;
+  background: green;
+}
+
+.dislike {
+  right: 20px;
+  background: red;
+}
+
+.later {
+  left: 50%;
+  transform: translateX(-50%);
+  background: orange;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  border: none;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.like-btn {
+  background: green;
+}
+
+.dislike-btn {
+  background: red;
+}
+
+.later-btn {
+  background: orange;
+}
+
+a{
+    text-decoration: none;  
+    color: inherit;        
+}
