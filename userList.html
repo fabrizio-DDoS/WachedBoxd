@@ -11,10 +11,11 @@
     <a href="index.html" target="_blank" rel="noopener noreferrer">
         <h1 class="titulo">🎬 WachedBoxd</h1>
     </a>
-    <button class="export-btn" id="export-btn">Exportar CSV</button>
+    <button class="export-btn" id="export-btn" onclick="exportarCSV()">Exportar CSV</button>
   </header>
-
-
+  <button onclick="limparLista()">Limpar Lista</button>
+  <button id="reset-btn">Resetar progresso</button>
+  
     <main class="container">
         <h3>Sua Lista:</h3>
         <div id="mostraLista"></div>
