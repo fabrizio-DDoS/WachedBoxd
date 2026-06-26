@@ -1,4 +1,4 @@
-##🎬 WachedBoxd
+<h1> 🎬 WachedBoxd </h1>
 
 WachedBoxd é uma aplicação web inspirada na experiência do Tinder, criada para ajudar usuários a montar rapidamente uma lista de filmes assistidos ou para assistir depois.
 
@@ -62,6 +62,7 @@ Backend para persistência real
 
 O projeto foi criado com o objetivo de:
 
+Fazer uma ferramanta para mim e meus amigos
 Praticar desenvolvimento web (HTML, CSS, JS)
 Trabalhar com APIs reais
 Criar um produto simples, mas útil
@@ -69,7 +70,8 @@ Explorar UX inspirada em aplicativos modernos
 🧑‍💻 Autor
 
 Desenvolvido por Fabrízio Moura como projeto de estudo e construção de portfólio.
+@fabriziommoura
 
 📌 Status do projeto
 
-🚧 Em desenvolvimento (MVP funcional)
+🚧 Em desenvolvimento (Mas já dá pra usar!)
