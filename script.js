@@ -19,12 +19,23 @@ function proximoFilme() {
     atualizaFilme();
 }
 
+function voltar() {
+    // Só permite voltar se o index for maior que 0 (ou seja, se não for o primeiro filme)
+    if (index > 0) {
+        index--; 
+        salvarEstado();
+        atualizaFilme();
+    } else {
+        console.log("Você já está no primeiro filme da lista!");
+    }
+}
+
 
 function like() {
     likeCounter++;
 
     if (filmes[index]) {
-        salvarFilme(filmes[index], "liked");
+        salvarFilme(filmes[index], "✅");
     }
     salvarEstado();
     atualiza();
@@ -40,6 +51,9 @@ function deslike() {
 
 function later() {
     lateCounter++;
+    if (filmes[index]) {
+        salvarTarde(filmes[index], "✅");
+    }
     salvarEstado();
     atualiza();
     proximoFilme();
@@ -48,7 +62,7 @@ function later() {
 
 function atualiza() {
     document.getElementById("mostraresult").innerHTML =
-        `deslike: ${deslikeCounter} | like: ${likeCounter} | late: ${lateCounter}`;
+        `Ainda não: ${deslikeCounter}         |          Assistido: ${likeCounter}`;
 }
 
 function atualizaFilme() {
@@ -105,6 +119,20 @@ function salvarFilme(filme, status) {
     localStorage.setItem("filmes", JSON.stringify(lista));
 }
 
+function salvarTarde(filme, status) {
+    let tarde = JSON.parse(localStorage.getItem("tarde")) || [];
+
+    tarde.push({
+        title: filme.title,
+        poster: filme.poster_path,
+        status: status,
+        release_date: filme.release_date,
+        vote_average: filme.vote_average
+    });
+
+    localStorage.setItem("tarde", JSON.stringify(tarde));
+}
+
 function salvarEstado() {
     const estado = {
         index,
@@ -116,6 +144,15 @@ function salvarEstado() {
     };
 
     localStorage.setItem("estadoApp", JSON.stringify(estado));
+}
+
+function voltar(){
+    index -= 1;
+    if (index >= filmes.length - 3) {
+        buscaFilmes();
+    }
+    salvarEstado();
+    atualizaFilme();
 }
 
 function carregarEstado() {
@@ -138,6 +175,10 @@ function limparLista() {
     localStorage.removeItem("filmes");
     mostraLista();
 }
+function limparLater() {
+    localStorage.removeItem("tarde");
+    mostraLater();
+}
 
 function mostraLista() {
     const lista = JSON.parse(localStorage.getItem("filmes")) || [];
@@ -155,6 +196,24 @@ function mostraLista() {
     });
 
     document.getElementById("mostraLista").innerHTML = html;
+}
+
+function mostraLater() {
+    const tarde = JSON.parse(localStorage.getItem("tarde")) || [];
+
+    let html = "";
+
+    tarde.forEach(filme => {
+        html += `
+            <div style="margin-bottom: 10px;">
+                <img src="https://image.tmdb.org/t/p/w200${filme.poster}" 
+                     style="width:50px; vertical-align: middle;">
+                <span>${filme.title} - ${filme.status}</span>
+            </div>
+        `;
+    });
+
+    document.getElementById("mostraLater").innerHTML = html;
 }
 
 function exportarCSV() {
@@ -207,3 +266,11 @@ function resetarEstado() {
 
     buscaFilmes();
 }
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") {
+        like(); // Seta para a Direita dá Like
+    } else if (event.key === "ArrowLeft") {
+        deslike(); // Seta para a Esquerda dá Deslike
+    }
+});

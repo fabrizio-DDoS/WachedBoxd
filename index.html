@@ -18,9 +18,11 @@
     </a>
     
   </header>
+    <a href="laterList.html" target="_blank" rel="laterList.html">
+        <button class="tarde-btn" id="export-btn">Mais Tarde...</button>
+    </a>
 
   <main class="container">
-
     <div class="card">
       <img src="" alt="Filme" class="poster">
 
@@ -28,21 +30,21 @@
         <h2 class="title" id="nomeFilme">Nome do Filme</h2>
         <p class="year" id="popularidadeFilme">Popularidade</p>
       </div>
-
       <div class="labels">
-        <span class="like">✔ Assistido</span>
+        <span class="like">✅ Assistido</span>
         <span class="dislike">❌ Não vi</span>
         <span class="later">⏳ Ver depois</span>
       </div>
     </div>
-
+    <button class="voltar" id="voltar" onclick="voltar()">⬅️ </button>
     <div class="buttons">
       <button class="btn dislike-btn" id="btn dislike-btn" onclick="deslike()">❌</button>
       <button class="btn later-btn" id="btn later-btn" onclick="later()">⏳</button>
-      <button class="btn like-btn" id="btn like-btn" onclick="like()">✔</button>
+      <button class="btn like-btn" id="btn like-btn" onclick="like()">✅</button>
     </div>
     <h3 id="mostraresult">Contador</h3>
   </main>
+  <h4 class="marca">@fabriziommoura</h4>
 
 </body>
 <script src="script.js"></script>
