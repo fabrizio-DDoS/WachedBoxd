@@ -5,6 +5,7 @@ let lateCounter = 0;
 let filmes = [];
 let index = 0;
 let paginaUser = 1;
+let carregando = false;
 
 
 function proximoFilme() {
@@ -12,7 +13,6 @@ function proximoFilme() {
 
     // se estiver chegando no fim, carrega mais
     if (index >= filmes.length - 3) {
-        paginaUser++;
         buscaFilmes();
     }
     salvarEstado();
@@ -58,26 +58,35 @@ function atualizaFilme() {
 
     const imagem =
         "https://image.tmdb.org/t/p/w500" + filmeAtual.poster_path;
-
+    
     document.querySelector(".poster").src = imagem;
+    document.getElementById("nomeFilme").innerHTML = filmeAtual.title;
+    document.getElementById("popularidadeFilme").innerHTML = "Popularity: " + ~~(filmeAtual.popularity);
 }
 
 async function buscaFilmes() {
+    if (carregando) return; // Se já estiver buscando, ignora cliques extras
+    carregando = true; // Ativa a trava
     try {
         const resposta = await fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=30b7b3dd9d679e6f954fa0c5061f80e8&page=${paginaUser}`
+            `https://api.themoviedb.org/3/discover/movie?api_key=30b7b3dd9d679e6f954fa0c5061f80e8&sort_by=vote_count.desc&page=${paginaUser}`
         );
 
         const dados = await resposta.json();
-        
-        filmes = filmes.concat(dados.results);
-        salvarEstado();
 
-        if (index === 0) {
-            atualizaFilme();
+        if (dados.results && dados.results.length > 0) {
+            filmes = filmes.concat(dados.results);
+            paginaUser++; //Incrementa aqui, preparando de forma segura para a próxima chamada
+            salvarEstado();
+
+            if (index === 0) {
+                atualizaFilme();
+            }
         }
     } catch (err) {
         console.error("Erro ao buscar filmes:", err);
+    } finally {
+        carregando = false; // 👈 Desativa a trava independente de ter dado certo ou errado
     }
 }
 
@@ -173,9 +182,7 @@ function exportarCSV() {
 
     URL.revokeObjectURL(url);
 }
-window.onclick("export-btn") = () => {
-    document.getElementById("export-btn").onclick = exportarCSV;
-};
+
 carregarEstado();
 
 if (filmes.length === 0) {
@@ -198,10 +205,5 @@ function resetarEstado() {
 
     atualiza();
 
-    // recarrega tudo do zero
     buscaFilmes();
 }
-
-window.onclick("export-btn") = () => {
-    document.getElementById("reset-btn").onclick = resetarEstado;
-};
