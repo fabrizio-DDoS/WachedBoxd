@@ -1,4 +1,4 @@
-🎬 WachedBoxd
+#🎬 WachedBoxd
 
 WachedBoxd é uma aplicação web inspirada na experiência do Tinder, criada para ajudar usuários a montar rapidamente uma lista de filmes assistidos ou para assistir depois.
 
