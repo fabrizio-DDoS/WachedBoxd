@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>WachedBoxd</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="mostraLista()">
+
+  <header class="header">
+    <a href="index.html" target="_blank" rel="noopener noreferrer">
+        <h1 class="titulo">🎬 WachedBoxd</h1>
+    </a>
+    <button class="export-btn" id="export-btn" onclick="exportarCSV()">Exportar CSV</button>
+  </header>
+  <button onclick="limparLista()">Limpar Lista</button>
+  <button id="reset-btn" onclick="resetarEstado()">Resetar progresso</button>
+  
+    <main class="container">
+        <h2>Sua Lista:</h2>
+        <h1>-</h1>
+        <div id="mostraLista"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
