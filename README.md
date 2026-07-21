@@ -51,7 +51,6 @@ Os filmes são salvos no navegador usando localStorage no seguinte formato:
 Não há autenticação de usuário
 Os dados não são sincronizados entre dispositivos
 Possibilidade de repetição de filmes
-API key exposta no frontend (apenas para desenvolvimento)
 🔮 Melhorias futuras
 Sistema de login
 Integração com Letterboxd
