@@ -1,6 +1,6 @@
 <h1> 🎬 WatchedBoxd </h1>
 
-Site: https://fabrizio-ddos.github.io/WachedBoxd/
+Site: https://fabrizio-ddos.github.io/WatchedBoxd/
 
 WatchedBoxd é uma aplicação web inspirada na experiência do Tinder, criada para ajudar usuários a montar rapidamente uma lista de filmes assistidos ou para assistir depois.
 
